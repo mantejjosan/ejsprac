@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doer</title>
+    <link rel="shortcut icon" href="/images/favicon/android-chrome-192x192.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="main w-full min-h-screen bg-zinc-900">
+        <div class="site-title flex items-center w-90 text-white flex-col m-auto p-5">
+            <h1 class="text-6xl text-bold">DOer</h1>
+            <p class="text-xl text-italic  ">The doer side of you</p>
+        </div>
+        <div class="form text-white p-10">
+            <form action="/create" method="post">
+                <input class="block w-full px-5 py-2 bg-zinc-800 outline-none rounded-md" type="text" placeholder="Task goes here" name="title" required>
+                <textarea class="block w-full px-5 py-2 bg-zinc-800 rounded-md outline-none mt-2 resize-none" name="description" id="task-description" placeholder="Describe the task"></textarea>
+                <input class="mt-2 bg-green-600 px-5 py-2 rounded-md outline-none" type="submit" value="Create-Task">
+            </form>
+        </div> 
+        <div class="tasks  w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-white p-10 place-items-center">
+
+            <% if (tasks.length) {%>
+                <% tasks.forEach((task) => { %>
+                    <div class="task px-3 py-4 w-72 bg-zinc-800 rounded-lg max-w-sm w-full">
+                        <h1 class="text-2xl truncate tracking-tighter"><%= task %></h1>
+                        
+                        <div class="bottom inline-flex items-center justify-between w-full">
+                            <a class=" text-green-500 mt-2" href="/files/<%= task %>">read more</a>
+                            <a href="/edit/:filename"><svg class="border   w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="rgba(148,231,112,1)"><path d="M6.41421 15.89L16.5563 5.74785L15.1421 4.33363L5 14.4758V15.89H6.41421ZM7.24264 17.89H3V13.6473L14.435 2.21231C14.8256 1.82179 15.4587 1.82179 15.8492 2.21231L18.6777 5.04074C19.0682 5.43126 19.0682 6.06443 18.6777 6.45495L7.24264 17.89ZM3 19.89H21V21.89H3V19.89Z"></path></svg></a>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <h1 class="text-zinc-400 text-lg text-center">No tasks yet, let's begin!</h1>
+            <% } %>
+
+        </div>
+    </div>
+</body>
+</html>

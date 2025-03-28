@@ -1,0 +1,23 @@
+{
+  "name": "ancienthistory",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "browser-sync start --proxy 'localhost:3000' --files 'public/**/*' & nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "chokidar": "^4.0.3",
+    "ws": "^8.18.1"
+  }
+}
